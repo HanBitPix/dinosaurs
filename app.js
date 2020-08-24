@@ -166,6 +166,11 @@ const compareDiet = (diet, dino) => {
 	}
 }
 
+const getRandomFact = () => {
+	const randomNumber = Math.floor(Math.random() * Math.floor(4)) + 1;
+	return `fact${randomNumber}`;
+};
+
 // Get human data from form
 const getHumanData = () => {
 
@@ -183,6 +188,8 @@ const getHumanData = () => {
 		compareHeight(totalInchesHumanHeight,Dinos[d]);
 		compareDiet(human.diet,Dinos[d]);
 
+
+
 		if(d === 4){
 			createGrid += 	
 				`<div class="grid-item">
@@ -193,36 +200,21 @@ const getHumanData = () => {
 				<div class="grid-item">
 					<h3>${Dinos[d].species}</h3>
 					<img src="./images/${Dinos[d].species.toLowerCase()}.png" alt="">
-					<p>Fact 1: ${Dinos[d].fact1}</p>
-					<p>Fact 2: ${Dinos[d].fact2}</p>
-					<p>Fact 3: ${Dinos[d].fact3}</p>
-					<p>Fact 4: ${Dinos[d].fact4}</p>
+					<p>Fact: ${Dinos[d][getRandomFact()]}</p>
 				</div>`
 		} else {
 			createGrid += 
 				`<div class="grid-item">
 					<h3>${Dinos[d].species}</h3>
 					<img src="./images/${Dinos[d].species.toLowerCase()}.png" alt=""/>
-					<p>Fact 1: ${Dinos[d].fact1}</p>
-					<p>Fact 2: ${Dinos[d].fact2}</p>
-					<p>Fact 3: ${Dinos[d].fact3}</p>
-					<p>Fact 4: ${Dinos[d].fact4}</p>
+					<p>Fact: ${Dinos[d][getRandomFact()]}</p>
 				</div>`
 		}
 	}
-	console.log(Dinos);
-
 	hideForm();
 
-	//TODO: Finish creating the grid item template 
 	document.getElementById('grid').innerHTML = createGrid;
 
 };
 
-    // Generate Tiles for each Dino in Array
-  
-        // Add tiles to DOM
 
-
-
-// On button click, prepare and display infographic
